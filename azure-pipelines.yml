@@ -37,7 +37,7 @@ steps:
   displayName: 'Run Postman Collection with QARelEnv'
 
 - script: |
-    newman run $(Build.SourcesDirectory)/STG_rfms.postman_collection.json -x -r junit --reporter-junit-export $(Build.ArtifactStagingDirectory)/Results/junit-report.xml
+    newman run $(Build.SourcesDirectory)/STG_QARel_Env.postman_collection.json -x -r junit --reporter-junit-export $(Build.ArtifactStagingDirectory)/Results/junit-report.xml
     if [ ! -f $(Build.ArtifactStagingDirectory)/Results/junit-report.xml ]; then
       echo "JUnit report not found!"
       exit 1
