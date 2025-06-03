@@ -18,13 +18,9 @@ steps:
 - script: |
     npm install -g newman-reporter-htmlextra
   displayName: 'Install Newman Reporter HTMLEXTRA'
-
-- script: |
-    npm run build
-  displayName: 'Build Project'
-
 # Run Newman with StgEnv environment and export report
 - script: |
+    npm run build
     newman run STG_QARel_Env.postman_collection.json \
       -e StgEnv.postman_environment.json \
       -r htmlextra \
@@ -33,6 +29,7 @@ steps:
 
 # Run Newman with QARelEnv environment and export report
 - script: |
+    npm run build
     newman run STG_QARel_Env.postman_collection.json \
       -e QARelEnv.postman_environment.json \
       -r htmlextra \
